@@ -1,0 +1,12 @@
+[Unit]
+Description=Python service for Rain Gauge
+After=multi-user.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+WorkingDirectory=/home/pi/rain_gauge/
+ExecStart=/usr/bin/python /home/pi/rain_gauge/rain_gauge.py
+Restart=always
+User=pi

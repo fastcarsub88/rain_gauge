@@ -1,0 +1,11 @@
+[Unit]
+Description=Python api for Rain Gauge
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/uwsgi --ini /home/pi/rain_gauge/app.ini
+Restart=on-failure
+User=pi
