@@ -5,10 +5,12 @@ from time import sleep
 spoon_state = 0
 timer = 0
 rain = 0
+time = 0
 rain_state = False
 
 def write_state(rain_state):
-    with open('rain_state.json','r') as f:
+    print(rain_state)
+    with open('rain_state.json','w') as f:
         f.write(rain_state)
 
 def write_rain_record(rain_amount):
@@ -23,6 +25,7 @@ def write_rain_record(rain_amount):
     data[datetime.now().strftime('%H')] = rain_amount+prev_rain
     with open('hourly_rain.json','w') as f:
         f.write(json.dumps(data))
+    print(data)
 
 def write_daily_rain():
     data = ''
@@ -61,7 +64,7 @@ def write_rain(hour,rain_amount):
 
 while True:
     sleep(.1)
-    timer +=
+    timer += 1
     if timer == 10000:
         if datetime.now().strftime('%H') == 0:
             pass
@@ -72,14 +75,13 @@ while True:
     spoon_state = read_pin();
 
     if spoon_state == 1:
-        rain +=
+        rain += 1
         if rain_state == False:
             rain_state = True
             write_state('True')
         time = 0;
-    }else{
-        time +=
+    else:
+        time += 1
         if time > 10000 and rain_state == True:
             rain_state = False
             write_state('False')
-    }

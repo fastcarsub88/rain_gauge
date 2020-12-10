@@ -1,7 +1,7 @@
 import cgi,json
 
-def read_stat():
-    with open('rain_state') as t:
+def read_state():
+    with open('rain_state.json') as t:
         return t.read()
 
 def application(env, start_response):
