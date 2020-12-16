@@ -10,7 +10,7 @@ rain_state = False
 
 def write_state(rain_state):
     with open('rain_log','a') as target:
-        target.write(datetime.now()+' : '+rain_state)
+        target.write(str(datetime.now())+' : '+rain_state)
     with open('rain_state.json','w') as f:
         f.write(rain_state)
 
